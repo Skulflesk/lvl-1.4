@@ -10,6 +10,33 @@ var ySpeed = 2;
 
 function drawBall()
 {
+    x = x + xSpeed;
+    y = y + ySpeed;
+
+    if (x + radius >= canvas.width)
+    {
+        x = canvas.width - radius;
+        xSpeed = -xSpeed;
+    }
+
+    if (x - radius <= 0)
+    {
+        x = radius;
+        xSpeed = -xSpeed;
+    }
+
+    if (y + radius >= canvas.height)
+    {
+        y = canvas.height - radius;
+        ySpeed = -ySpeed;
+    }
+
+    if (y - radius <= 0)
+    {
+        y = radius;
+        ySpeed = -ySpeed;
+    }
+
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     context.beginPath();
@@ -17,35 +44,6 @@ function drawBall()
 
     context.fillStyle = "red";
     context.fill();
-
-    
-   x = x + xSpeed;
-   y = y + ySpeed;
-   
-    
-  
-    if (x + radius >= canvas.height)
-    {
-        x = canvas.height - radius;
-      xSpeed = -xSpeed
-    }
-    if (x - radius <= 0)
-    {
-       x = radius;
-        xSpeed = -xSpeed;
-    }
-
-        if (y + radius >= canvas.height)
-    {
-        y = canvas.height - radius;
-      ySpeed = -ySpeed
-    }
-    if (y - radius <= 0)
-    {
-       y = radius;
-        ySpeed = -ySpeed;
-    }
-
 }
 
 setInterval(drawBall, 20);
