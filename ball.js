@@ -24,15 +24,26 @@ function drawBall()
    
     
   
-    if (x + radius >= canvas.width)
+    if (x + radius >= canvas.height)
     {
-        x = canvas.width - radius;
+        x = canvas.height - radius;
       xSpeed = -xSpeed
     }
     if (x - radius <= 0)
     {
        x = radius;
         xSpeed = -xSpeed;
+    }
+
+        if (y + radius >= canvas.height)
+    {
+        y = canvas.height - radius;
+      ySpeed = -ySpeed
+    }
+    if (y - radius <= 0)
+    {
+       y = radius;
+        ySpeed = -ySpeed;
     }
 
 }
